@@ -1,0 +1,27 @@
+{
+  "name": "api-bocaburguer",
+  "version": "1.0.0",
+  "description": "API para o projeto de hamburgueria",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rapha-Reiis/API-BocaBurguer.git"
+  },
+  "author": "rapha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rapha-Reiis/API-BocaBurguer/issues"
+  },
+  "homepage": "https://github.com/Rapha-Reiis/API-BocaBurguer#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.19.0",
+    "nodemon": "^3.1.9"
+  }
+}

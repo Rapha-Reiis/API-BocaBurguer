@@ -10,7 +10,7 @@ class UserController{
         const schema = yup.object({
             name: yup.string().required(),
             email:yup.string().email().required(),
-            password_hash: yup.string().min(6).required(),
+            password: yup.string().min(6).required(),
             admin: yup.boolean()
         })
 
@@ -20,7 +20,7 @@ class UserController{
             return response.status(400).json({error: err.errors}) // retorna err. padrão e errors que vem do yup mostrando oq esta errado
         }
 
-        const {name,email,password_hash,admin} = request.body
+        const {name,email,password,admin} = request.body
 
         const emailExist = await User.findOne({
             where:{
@@ -36,13 +36,10 @@ class UserController{
             id: v4(),
             name,
             email,
-            password_hash,
+            password,
             admin
         })
-
-
         
-
         return response.status(201).json({
             id: user.id,
             name,

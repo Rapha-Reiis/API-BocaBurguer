@@ -4,13 +4,13 @@
 export default  {
   async up (queryInterface, Sequelize) {
 
-    await queryInterface.createTable('users', {  // // Cria uma tabela chamada `users` no banco de dados.
-      //Definindo as colunas do banco
+    await queryInterface.createTable('users', { 
+     
       id:{
         primaryKey: true,
-        allowNull: false, // Garante que a coluna `id` não pode ter valores nulos.
-        type:Sequelize.UUID, // Define o tipo de dado como `UUID` (identificador único universal).
-        defaultValue: Sequelize.UUIDV4 //        // Define que o valor padrão será gerado automaticamente como um UUID versão 4.
+        allowNull: false, 
+        type:Sequelize.UUID, 
+        defaultValue: Sequelize.UUIDV4    
       },
       name:{
         type: Sequelize.STRING,
@@ -19,11 +19,15 @@ export default  {
       email:{
         type: Sequelize.STRING,
         allowNull: false,
-        unique:true  // Define que os valores na coluna `email` devem ser únicos (sem duplicatas).
+        unique:true  
+      },
+      password_hash:{
+        type: Sequelize.STRING,
+        allowNull: false
       },
       admin:{
         type: Sequelize.BOOLEAN,
-        defaultValue:false  // O valor padrão para `admin` será `false` (não administrador).
+        defaultValue:false 
       },
       created_at:{
         type:Sequelize.DATE,
@@ -37,9 +41,8 @@ export default  {
 
   },
 
-  async down (queryInterface) {  // // Método `down` é chamado para reverter a migração.
-
+  async down (queryInterface) {  
     await queryInterface.dropTable('users');
-    // Remove a tabela `users` do banco de dados.
+
   }
 };

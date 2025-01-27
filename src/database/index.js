@@ -3,8 +3,9 @@ import Sequelize from 'sequelize'
 import configDatabase from '../config/database.js'
 
 import User from '../app/model/User.js' 
+import Product  from '../app/model/Product.js'
 
-const models = [User]                  
+const models = [User,Product]                  
 
 class Database{
 

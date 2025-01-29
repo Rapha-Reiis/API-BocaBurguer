@@ -18,11 +18,11 @@ class CategoryController {
         // const { filename: path } = request.file
         const {name} = request.body
 
-        const categoryCreate = await Category.create({
+        const {id} = await Category.create({
             name
         })
 
-        return response.status(200).json(categoryCreate)
+        return response.status(200).json({id, name})
     }
 
 

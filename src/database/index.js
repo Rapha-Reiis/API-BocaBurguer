@@ -4,8 +4,9 @@ import configDatabase from '../config/database.js'
 
 import User from '../app/model/User.js' 
 import Product  from '../app/model/Product.js'
+import Category from '../app/model/Category.js'
 
-const models = [User,Product]                  
+const models = [User,Product,Category]                  
 
 class Database{
 

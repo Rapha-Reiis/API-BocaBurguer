@@ -1,5 +1,6 @@
 import * as Yup from 'yup'
 import User from '../model/User.js'
+import jwt from 'jsonwebtoken'
 
 
 class SessionControlle{
@@ -38,7 +39,15 @@ class SessionControlle{
             return errorMsg()
         }
 
-        return response.status(201).json({message: "session"})
+        return response.status(201).json({
+            id: userExist.id,
+            name: userExist.name,
+            email,
+            admin: userExist.admin,
+            token: jwt.sign({id: userExist.id}, 'f6a078e5438f1c56edb9e4c3b1006075', {
+                expiresIn: '5d'
+            })
+        })
 
     }
 }

@@ -1,5 +1,5 @@
 import jwt, { decode } from 'jsonwebtoken'
-import authConfig from '../config/auth.js'
+import authConfig from '../../config/auth.js'
 
 
 function authMiddleware(request, response, next){
@@ -17,9 +17,7 @@ function authMiddleware(request, response, next){
             if(err){
                 throw new Error()
             }
-
-            request.userId = decoded.id
-
+            request.userId = decoded.id            
             return next()
         })
     } catch (err) {

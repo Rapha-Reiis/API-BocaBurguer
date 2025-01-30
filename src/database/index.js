@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize' 
+import mongoose from 'mongoose'
 import configDatabase from '../config/database.js' 
 
 import User from '../app/model/User.js' 
@@ -10,6 +11,7 @@ const models = [User, Product, Category]
 class Database {
     constructor() {
         this.init()
+        this.mongo()
     }
 
     init() {
@@ -22,6 +24,10 @@ class Database {
                 model.associate(this.connection.models) 
             }
         })
+    }
+
+    mongo(){
+        this.mongoConnection = mongoose.connect('mongodb://localhost:27017/burguer')
     }
 }
 

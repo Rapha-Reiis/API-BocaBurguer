@@ -2,6 +2,7 @@ import express from "express";
 import routes from './routes.js'
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import cors from 'cors'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,6 +13,7 @@ class App{
 
     constructor(){
         this.app = express()
+        this.app.use(cors())
         this.midlewares()
         this.routes()
     }
